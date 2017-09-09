@@ -1,0 +1,22 @@
+.disabledarea {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.dayBox{
+  width:50px;
+  text-align: center;
+}
+
+.jumbotron {
+    padding: 2rem 2rem;
+}
+
+.activeBox{
+  background-color: lightblue;
+  font-weight: bolder;
+}
+
+.rvaheader{
+  padding: 0px;
+}

@@ -7,70 +7,68 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <link rel="icon" href="../../favicon.ico"/>
+    <link rel="icon" href="favicon.ico"/>
 
     <title>RVA Week</title>
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="css/rvaweek.css" rel="stylesheet" />
 
   </head>
 
-  <body ng-app="rvaWeekApp">
 
-    <div class="container-fluid" ng-controller="RVAWeekController as eventList">
+  <body ng-app="rvaWeekApp" ng-controller="RVAWeekController as eventList">
 
-      <nav class="navbar navbar-dark bg-inverse">
-        <a class="navbar-brand" href="#">RVA Week</a>
+      <nav class="navbar bg-inverse">
+        <h2 class="nav-link disabled">RVA Week</h2>
       </nav>
 
-      <nav class="navbar navbar-light bg-faded">
-        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
-        <div class="collapse navbar-toggleable-xs" id="navbar-header">
-          <ul class="nav navbar-nav">
-            <li class="nav-item" ng-repeat="day in week track by $index">
-              <div ng-class="{active: $index == dayIndex}">
-                <a class="nav-link" href="?weekIndex={{weekIndex}}&dayIndex={{dayIndex}}">{{day | date:'MMM dd'}}</a>
-              </div>
-            </li>
-          </ul>
+      <nav class="navbar navbar-toggleable navbar-light bg-inverse" style="text-align:center;font-weight:bold;padding:0px;">
+        <div class="col">
+         <a href="#" class="btn btn-secondary btn" role="button" aria-pressed="true">&lt;&lt;</a>
+        </div>
+        <a class="nav-item nav-link" href="#"  ng-repeat="day in week track by $index">
+          <div> {{day | date:'EEE'}}</div>
+          <div>{{day | date:'d'}}</div>
+        </a>
+        <div class="col">
+         <a href="#" class="btn btn-secondary btn" role="button" aria-pressed="true">&gt;&gt;</a>
         </div>
       </nav>
 
-      <div class="jumbotron row">
-        <h1 style="text-align:center">
-          {{date}}
-        </h1>
-        <div class="col-sm-12">
+<div class="container-fluid" >
 
-          <div class="card" ng-repeat="event in eventList.events">
+       <h1 style="text-align:center;width:100%">
+         {{day | date:'EEEE MMM d'}}
+       </h1>
+
+        <div class="">
+          <div class="card" ng-repeat="event in events">
             <div class="card-block row">
               <div class="col-sm-2">
-                <img width="100%" src="{{event.image}}"/>
+                <img width="100%" style="max-height:175px" src="{{event.image}}"/>
               </div>
               <div class="col-sm-10">
                 <h3 class="card-title">{{event.name}}</h3>
                 <h4 class="card-title">{{event.secondaryName}}</h4>
                 <h6 class="card-subtitle text-muted">{{event.location}}</h6>
-                <a href="{{event.url}}" class="card-link">More Information</a>
+                <a href="{{event.url}}" target="_blank" class="card-link">More Information</a>
               </div>
             </div>
           </div>
 
         </div>
-      </div>
-
 
     </div>
 
   </body>
+
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootpag/1.0.4/jquery.bootpag.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
-
-  <script src="js/rvaweek.js"></script>
+  <script src="js/rvaweek0.js"></script>
 
 </html>
