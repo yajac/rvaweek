@@ -30,7 +30,7 @@ var url = "https://2grfdhdu8b.execute-api.us-east-1.amazonaws.com/beta/rvaweek";
    $scope.weekIndex = day.getWeek();
    updateEvents(day);
 
-    $scope.updateEvents = function(date, index) {
+    $scope.updateEvents = function(date) {
         $scope.dayIndex = date.getDay();
         $scope.day  = date;
         updateEvents(date);
