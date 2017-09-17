@@ -25,14 +25,14 @@
 
       <nav class="navbar navbar-toggleable navbar-light bg-inverse" style="text-align:center;font-weight:bold;padding:0px;">
         <div class="col">
-         <a href="#" class="btn btn-secondary btn" role="button" aria-pressed="true">&lt;&lt;</a>
+         <a href="#" class="btn btn-secondary btn" role="button" aria-pressed="true" ng-click="updateWeek(-7)">&lt;&lt;</a>
         </div>
         <a class="nav-item nav-link" href="#" ng-click="updateEvents(day)" ng-repeat="day in week track by $index">
           <div> {{day | date:'EEE'}}</div>
           <div>{{day | date:'d'}}</div>
         </a>
         <div class="col">
-         <a href="#" class="btn btn-secondary btn" role="button" aria-pressed="true">&gt;&gt;</a>
+         <a href="#" class="btn btn-secondary btn" role="button" aria-pressed="true"  ng-click="updateWeek(7)">&gt;&gt;</a>
         </div>
       </nav>
 

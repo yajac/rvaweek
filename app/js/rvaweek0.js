@@ -30,6 +30,14 @@ var url = "https://2grfdhdu8b.execute-api.us-east-1.amazonaws.com/beta/rvaweek";
    $scope.weekIndex = day.getWeek();
    updateEvents(day);
 
+   $scope.updateWeek = function(days){
+     var newDate = $scope.day.add(days).days();
+     $scope.week =  getWeek(newDate);
+     $scope.dayIndex = newDate.getDay();
+     $scope.day  = newDate;
+     updateEvents(newDate)
+   }
+
     $scope.updateEvents = function(date) {
         $scope.dayIndex = date.getDay();
         $scope.day  = date;
@@ -57,14 +65,12 @@ var url = "https://2grfdhdu8b.execute-api.us-east-1.amazonaws.com/beta/rvaweek";
    }
    setTimeout(function() {
      var date = month+day+year;
-     console.log("Date" + date)
      $.ajax({
        url: url,
        data: {
          date: date
        },
        success: function(events) {
-         console.log("Events: " + events)
          deferred.resolve(events);
        }
      });
