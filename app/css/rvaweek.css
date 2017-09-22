@@ -8,10 +8,6 @@
   text-align: center;
 }
 
-.jumbotron {
-    padding: 2rem 2rem;
-}
-
 .activeBox{
   background-color: lightblue;
   font-weight: bolder;
@@ -19,4 +15,5 @@
 
 .rvaheader{
   padding: 0px;
+  text-align: center;
 }

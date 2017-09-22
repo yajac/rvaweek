@@ -23,6 +23,22 @@
         <h2 class="nav-link disabled">RVA Week</h2>
       </nav>
 
+      <div class="row bg-inverse">
+        <div class="col rvaheader">
+         <a href="#" class="btn btn-secondary" role="button" aria-pressed="true" ng-click="updateWeek(-7)">&lt;&lt;</a>
+        </div>
+        <div class="col-md-auto rvaheader btn-group">
+            <button type="button" ng-repeat="day in week track by $index" ng-click="updateEvents(day)" class="btn btn-secondary">
+              <div>{{day | date:'EEE'}}</div>
+              <div>{{day | date:'d'}}</div>
+            </button>
+        </div>
+        <div class="col rvaheader">
+         <a href="#" class="btn btn-secondary" role="button" aria-pressed="true"  ng-click="updateWeek(7)">&gt;&gt;</a>
+        </div>
+      </div>
+
+<!--
       <nav class="navbar navbar-toggleable navbar-light bg-inverse" style="text-align:center;font-weight:bold;padding:0px;">
         <div class="col">
          <a href="#" class="btn btn-secondary btn" role="button" aria-pressed="true" ng-click="updateWeek(-7)">&lt;&lt;</a>
@@ -35,12 +51,14 @@
          <a href="#" class="btn btn-secondary btn" role="button" aria-pressed="true"  ng-click="updateWeek(7)">&gt;&gt;</a>
         </div>
       </nav>
-
+-->
 <div class="container-fluid" >
 
+  <div class="jumbotron jumbotron-fluid">
        <h1 style="text-align:center;width:100%">
          {{day | date:'EEEE MMM d'}}
        </h1>
+  </div>
 
         <div class="">
           <div class="card" ng-repeat="event in events">
