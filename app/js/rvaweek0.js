@@ -64,7 +64,7 @@ var url = "https://2grfdhdu8b.execute-api.us-east-1.amazonaws.com/beta/rvaweek";
      day = "0" + day;
    }
    setTimeout(function() {
-     var date = month+day+year;
+     var date = ""+month+day+year;
      $.ajax({
        url: url,
        data: {
