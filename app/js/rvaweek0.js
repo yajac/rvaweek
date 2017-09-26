@@ -36,7 +36,7 @@ var url = "https://2grfdhdu8b.execute-api.us-east-1.amazonaws.com/beta/rvaweek";
      $scope.dayIndex = newDate.getDay();
      $scope.day  = newDate;
      updateEvents(newDate)
-   }
+   };
 
     $scope.updateEvents = function(date) {
         $scope.dayIndex = date.getDay();
