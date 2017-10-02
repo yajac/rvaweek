@@ -20,7 +20,7 @@
   <body ng-app="rvaWeekApp" ng-controller="RVAWeekController as eventList">
 
       <nav class="navbar">
-        <h2 class="nav-link">RVA Week</h2>
+        <h2 class="nav-link" style="color: #31708f;">RVA Week</h2>
       </nav>
       <div class="container-fluid">
         <div class="row align-items-center">
@@ -28,7 +28,7 @@
            <a href="#" class="btn btn-secondary btn-sm" role="button" aria-pressed="true" ng-click="updateWeek(-7)">&lt;&lt;</a>
           </div>
           <div class="col-md-auto rvaheader btn-group">
-              <button type="button" ng-repeat="dayCal in week track by $index" ng-click="updateEvents(dayCal)" ng-class="{active: dayCal.getTime()  == day.getTime()}" class="btn btn-secondary  btn-sm">
+              <button type="button" ng-repeat="dayCal in week track by $index" ng-click="updateEvents(dayCal)" ng-class="{active: dayCal.getTime()  == day.getTime()}" class="btn btn-secondary btn-sm">
                 <div style="font-family: monospace;">{{dayCal | date:'EEE'}}</div>
                 <div>{{dayCal | date:'d'}}</div>
               </button>
@@ -47,6 +47,17 @@
            </h1>
       </div>
 
+      <div class="media" ng-repeat="event in events" style="border: 1px solid; padding: 1em;">
+        <img class="col-3" src="{{event.image}}" alt="Generic placeholder image"/>
+        <div class="media-body">
+          <h5 class="mt-0">{{event.name}}</h5>
+          <h5 class="mt-0">{{event.secondaryName}}</h5>
+          <div>{{event.location}}</div>
+          <div><a href="{{event.url}}" target="_blank">More Information</a></div>
+        </div>
+      </div>
+
+<!--
           <div class="card" ng-repeat="event in events">
             <div class="card-block row">
               <div class="col-sm-2">
@@ -60,7 +71,7 @@
               </div>
             </div>
           </div>
-
+-->
     </div>
 
   </body>
