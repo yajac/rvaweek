@@ -23,18 +23,18 @@
         <h2 class="nav-link">RVA Week</h2>
       </nav>
       <div class="container-fluid">
-        <div class="row">
+        <div class="row align-items-center">
           <div class="col rvaheader">
-           <a href="#" class="btn btn-secondary" role="button" aria-pressed="true" ng-click="updateWeek(-7)">&lt;&lt;</a>
+           <a href="#" class="btn btn-secondary btn-sm" role="button" aria-pressed="true" ng-click="updateWeek(-7)">&lt;&lt;</a>
           </div>
           <div class="col-md-auto rvaheader btn-group">
-              <button type="button" ng-repeat="dayCal in week track by $index" ng-click="updateEvents(dayCal)" ng-class="{active: dayCal.getTime()  == day.getTime()}" class="btn btn-secondary">
+              <button type="button" ng-repeat="dayCal in week track by $index" ng-click="updateEvents(dayCal)" ng-class="{active: dayCal.getTime()  == day.getTime()}" class="btn btn-secondary  btn-sm">
                 <div style="font-family: monospace;">{{dayCal | date:'EEE'}}</div>
                 <div>{{dayCal | date:'d'}}</div>
               </button>
           </div>
           <div class="col rvaheader">
-           <a href="#" class="btn btn-secondary" role="button" aria-pressed="true"  ng-click="updateWeek(7)">&gt;&gt;</a>
+           <a href="#" class="btn btn-secondary btn-sm" role="button" aria-pressed="true"  ng-click="updateWeek(7)">&gt;&gt;</a>
           </div>
         </div>
       </div>
