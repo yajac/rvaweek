@@ -19,34 +19,34 @@
 
   <body ng-app="rvaWeekApp" ng-controller="RVAWeekController as eventList">
 
-      <nav class="navbar bg-inverse">
-        <h2 class="nav-link disabled">RVA Week</h2>
+      <nav class="navbar">
+        <h2 class="nav-link">RVA Week</h2>
       </nav>
-
-      <div class="row bg-inverse">
-        <div class="col rvaheader">
-         <a href="#" class="btn btn-secondary" role="button" aria-pressed="true" ng-click="updateWeek(-7)">&lt;&lt;</a>
-        </div>
-        <div class="col-md-auto rvaheader btn-group">
-            <button type="button" ng-repeat="dayCal in week track by $index" ng-click="updateEvents(dayCal)" ng-class="{active: dayCal.getTime()  == day.getTime()}" class="btn btn-secondary">
-              <div>{{dayCal | date:'EEE'}}</div>
-              <div>{{dayCal | date:'d'}}</div>
-            </button>
-        </div>
-        <div class="col rvaheader">
-         <a href="#" class="btn btn-secondary" role="button" aria-pressed="true"  ng-click="updateWeek(7)">&gt;&gt;</a>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col rvaheader">
+           <a href="#" class="btn btn-secondary" role="button" aria-pressed="true" ng-click="updateWeek(-7)">&lt;&lt;</a>
+          </div>
+          <div class="col-md-auto rvaheader btn-group">
+              <button type="button" ng-repeat="dayCal in week track by $index" ng-click="updateEvents(dayCal)" ng-class="{active: dayCal.getTime()  == day.getTime()}" class="btn btn-secondary">
+                <div style="font-family: monospace;">{{dayCal | date:'EEE'}}</div>
+                <div>{{dayCal | date:'d'}}</div>
+              </button>
+          </div>
+          <div class="col rvaheader">
+           <a href="#" class="btn btn-secondary" role="button" aria-pressed="true"  ng-click="updateWeek(7)">&gt;&gt;</a>
+          </div>
         </div>
       </div>
 
-<div class="container-fluid" >
+    <div class="container" >
 
-  <div class="jumbotron jumbotron-fluid">
-       <h1 style="text-align:center;width:100%">
-         {{day | date:'EEEE MMM d'}}
-       </h1>
-  </div>
+      <div class="alert alert-info" role="alert">
+           <h1 style="text-align:center;width:100%">
+             {{day | date:'EEEE MMM d'}}
+           </h1>
+      </div>
 
-        <div class="">
           <div class="card" ng-repeat="event in events">
             <div class="card-block row">
               <div class="col-sm-2">
@@ -60,8 +60,6 @@
               </div>
             </div>
           </div>
-
-        </div>
 
     </div>
 
