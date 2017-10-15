@@ -23,8 +23,6 @@ var url = "https://2grfdhdu8b.execute-api.us-east-1.amazonaws.com/beta/rvaweek";
    day = today;
    $scope.day = day;
 
-   console.log(today.getDay());
-
    $scope.dayIndex = day.getDay();
    $scope.week =  getWeek(day);
    $scope.weekIndex = day.getWeek();
