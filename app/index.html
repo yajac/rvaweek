@@ -27,6 +27,15 @@
     </script>
     <script async src='https://www.google-analytics.com/analytics.js'></script>
     <!-- End Google Analytics -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <script src="js/rvaweek0.js"></script>
+
   </head>
 
   <body ng-app="rvaWeekApp" ng-controller="RVAWeekController as eventList">
@@ -62,26 +71,54 @@
            </h1>
       </div>
 
-      <div class="media" ng-repeat="event in events" style="border: 1px solid; padding: 1em;">
-        <img class="col-3" src="{{event.image}}" alt="Generic placeholder image"/>
-        <div class="media-body">
-          <h5 class="mt-0">{{event.name}}</h5>
-          <h5 class="mt-0">{{event.secondaryName}}</h5>
-          <div>{{event.location}}</div>
-          <div><a href="{{event.url}}" target="_blank">More Information</a></div>
-        </div>
+      <div class="container row" style="text-align:center;">
+          <div class="input-group-lg col">
+            <div class="form-check-inline form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" value="" ng-model="music">
+                Music
+              </label>
+            </div>
+            <div class="form-check-inline form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" value="" ng-model="beer">
+                Beer
+              </label>
+            </div>
+            <div class="form-check-inline form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" value="" ng-model="arts">
+                Arts
+              </label>
+            </div>
+            <div class="form-check-inline form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" value="" ng-model="neighborhood">
+                Neighborhood
+              </label>
+            </div>
+            <div class="form-check-inline form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" value="" ng-model="food">
+                Food
+              </label>
+            </div>
+          </div>
       </div>
 
+      <div ng-if="dataHasLoaded">
+        <div class="media" ng-repeat="event in events | filter:eventFilter" style="border: 1px solid; padding: 1em;">
+          <img class="col-3" src="{{event.image}}" alt="event image"/>
+          <div class="media-body">
+            <h5 class="mt-0">{{event.name}}</h5>
+            <h5 class="mt-0">{{event.secondaryName}}</h5>
+            <div>{{event.location}}</div>
+            <div><a href="{{event.url}}" target="_blank">More Information</a></div>
+          </div>
+        </div>
+      </div>
     </div>
 
   </body>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
-  <script src="js/rvaweek0.js"></script>
 
 </html>

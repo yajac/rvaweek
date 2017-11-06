@@ -16,7 +16,22 @@ var url = "https://2grfdhdu8b.execute-api.us-east-1.amazonaws.com/beta/rvaweek";
 
  var app = angular.module('rvaWeekApp', []);
 
+ app.filter('types', function() {
+
+      return function(x) {
+          console.log('Filter');
+          return x;
+      };
+  });
+
+
  app.controller('RVAWeekController', function($scope, $q) {
+
+   $scope.music = true;
+   $scope.arts = true;
+   $scope.beer = true;
+   $scope.food = true;
+   $scope.neighborhood = true;
 
    var today = Date.today();
    today.clearTime();
@@ -42,10 +57,30 @@ var url = "https://2grfdhdu8b.execute-api.us-east-1.amazonaws.com/beta/rvaweek";
         updateEvents(date);
     };
 
+    $scope.eventFilter = function(event) {
+      if(event.category == 'Music' && $scope.music){
+        return event;
+      }
+      if(event.category == 'Beer' && $scope.beer){
+        return event;
+      }
+      if((event.category == 'Arts' || event.category == 'Performance Arts') && $scope.arts){
+        return event;
+      }
+      if(event.category == 'Neighborhood' && $scope.neighborhood){
+        return event;
+      }
+      if(event.category == 'Coffee' && $scope.food){
+        return event;
+      }
+       return;
+   }
+
     function updateEvents(date){
       var promise = asyncEvents($q, date.getFullYear(), date.getMonth()+1, date.getDate());
       promise.then(function(data) {
         $scope.events = data.eventList;
+        $scope.dataHasLoaded = true;
        }, function(reason) {
          console.log('Failed: ' + data);
        });
