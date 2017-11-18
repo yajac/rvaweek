@@ -2,9 +2,6 @@
 <html lang="en">
   <head>
 
-
-
-
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -43,7 +40,25 @@
 
 
       <nav class="navbar">
-        <h2 class="nav-link" style="color: #31708f;">RVA Week</h2>
+        <div class="d-flex flex-row justify-content-between">
+        <a class="navbar-brand mb-0" style="color: #31708f;" href="#">RVAWeek</a>
+        <div class="nav-item">
+          <a target="_blank" href="https://twitter.com/intent/tweet?screen_name=RVAWeek&ref_src=twsrc%5Etfw">
+            <div class="row">
+              <div class="col" style="padding-right:0px">
+                <img style="min-height:50px;height:50px;" src="images/Twitter_Logo_Blue.png"/>
+              </div>
+              <div class="col" style="padding-left:0px">
+                <h4 style="padding-top:8px">@RVAWeek</h4>
+              </div>
+            </div>
+          </a>
+
+          <!--<a href="https://twitter.com/intent/tweet?screen_name=TwitterDev&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-size="large" data-show-count="false">Tweet to @TwitterDev</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <a href="https://twitter.com/intent/tweet?screen_name=RVAWeek&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @RVAWeek</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        -->
+        </div>
+      </div>
       </nav>
       <hr style="margin-top: 0rem;"/>
       <div class="container-fluid">
@@ -108,7 +123,7 @@
 
       <div ng-if="dataHasLoaded">
         <div class="media" ng-repeat="event in events | filter:eventFilter" style="border: 1px solid; padding: 1em;">
-          <img class="col-3" src="{{event.image}}" alt="event image"/>
+          <img class="col-3" src="{{event.image}}"/>
           <div class="media-body">
             <h5 class="mt-0">{{event.name}}</h5>
             <h5 class="mt-0">{{event.secondaryName}}</h5>
