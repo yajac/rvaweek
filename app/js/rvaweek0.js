@@ -24,7 +24,6 @@ var url = "https://2grfdhdu8b.execute-api.us-east-1.amazonaws.com/beta/rvaweek";
       };
   });
 
-
  app.controller('RVAWeekController', function($scope, $q) {
 
    $scope.music = true;
