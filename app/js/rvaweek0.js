@@ -4,13 +4,19 @@ var url = "https://2grfdhdu8b.execute-api.us-east-1.amazonaws.com/beta/rvaweek";
 
   function getWeek(date){
     var theWeek = [];
-    var weekIndex = date.getWeek();
-    var start = new Date(date).setWeek(weekIndex);
+    var start = getMonday(date);
     for (var i=0; i <7; i++){
       var newDate = new Date(start).addDays(i);
       theWeek.push(newDate);
     }
     return theWeek;
+  }
+
+  function getMonday(d) {
+    d = new Date(d);
+    var day = d.getDay(),
+        diff = d.getDate() - day + (day == 0 ? -6 : 1);
+    return new Date(d.setDate(diff));
   }
 
 
